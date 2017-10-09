@@ -19,11 +19,13 @@ class Locoy(object):
         self.quantity_check_file = open(out + 'QUANTITY_check_file.txt', 'w')
         self.quality_check_file = open(out + 'QUALITY_check_file.txt', 'w')
         self.error_file = open(out + 'error_file.txt', 'w')
+        self.section_statistics_file = open(out + 'statistics_file.txt', 'w')
 
     def __del__(self):
         self.quality_check_file.close()
         self.quantity_check_file.close()
         self.error_file.close()
+        self.section_statistics_file.close()
 
     def read_locoy_file(self, file_name):
         strall = ''
@@ -80,10 +82,15 @@ class Locoy(object):
                 self.quantity_check_file.write('文件夹 [{}] 中共有{}个文件,{}个文件夹.\n'.format(root, len(files), len(dirs)))
 
                 dict_f = {}
+                flag = True
                 for x in files:  # 当前路径下所有非目录子文件
                     file_name = root + '/' + x
                     self.quality_check_file.write(file_name+'\n')
                     print file_name
+                    if flag:
+                        self.error_file.write("====================================================\n")
+                        self.error_file.write("文件夹[{}]中共有[{}]个文件.\n".format(root, len(files)))
+                        flag = False
                     tuples = self.static_locoy_file(file_name)
                     for single in tuples:
                         if dict_f.has_key(single):
@@ -91,14 +98,25 @@ class Locoy(object):
                         else :
                             dict_f[single] = 1
                 if len(files) > 0:
-                    section_statistics_file = open(self.out + root.replace('/', '_') + '.txt', 'w')
+                    self.section_statistics_file.write('====================================================\n')
+                    self.section_statistics_file.write(self.out + root.replace('/', '_') + '\n')
                     for key in dict_f.keys():
-                        section_statistics_file.write(key + '\t' + str(dict_f[key]) + '\n')
-                    section_statistics_file.close()
+                        self.section_statistics_file.write(key + '\t' + str(dict_f[key]) + '\n')
+                    self.section_statistics_file.flush()
 
 if __name__ == '__main__':
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('zhanghang/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/0930/张航/0920张航/')
+    # obj.read_locoy_file('datas/source_file/芙蓉区政府采购网.txt')
+
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('wangqing/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/0930/王青/0920王青/')
+
     # 参数为输出文件夹,注意要带斜杠
     obj = Locoy('fangyang/')
     # 参数为输入待检查文件夹,注意要带斜杠
     obj.find_all_file('/Users/haizhi/huochesite_checking/0930/方洋/0920样本/')
-    # obj.read_locoy_file('datas/source_file/芙蓉区政府采购网.txt')
