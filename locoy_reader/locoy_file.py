@@ -104,19 +104,28 @@ class Locoy(object):
                         self.section_statistics_file.write(key + '\t' + str(dict_f[key]) + '\n')
                     self.section_statistics_file.flush()
 
-if __name__ == '__main__':
+def run_0930():
     # 参数为输出文件夹,注意要带斜杠
-    obj = Locoy('zhanghang/')
+    obj = Locoy('datas/zhanghang/')
     # 参数为输入待检查文件夹,注意要带斜杠
     obj.find_all_file('/Users/haizhi/huochesite_checking/0930/张航/0920张航/')
     # obj.read_locoy_file('datas/source_file/芙蓉区政府采购网.txt')
 
     # 参数为输出文件夹,注意要带斜杠
-    obj = Locoy('wangqing/')
+    obj = Locoy('datas/wangqing/')
     # 参数为输入待检查文件夹,注意要带斜杠
     obj.find_all_file('/Users/haizhi/huochesite_checking/0930/王青/0920王青/')
 
     # 参数为输出文件夹,注意要带斜杠
-    obj = Locoy('fangyang/')
+    obj = Locoy('datas/fangyang/')
     # 参数为输入待检查文件夹,注意要带斜杠
     obj.find_all_file('/Users/haizhi/huochesite_checking/0930/方洋/0920样本/')
+
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/xiaoshaoxuan/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/0930/肖少旋/火车头本地保存/')
+
+
+if __name__ == '__main__':
+    run_0930()
