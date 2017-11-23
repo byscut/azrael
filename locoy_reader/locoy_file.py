@@ -44,7 +44,7 @@ class Locoy(object):
         with open(file_name, 'r') as pre:
             for str1 in pre.readlines():
                 strall = strall + str1
-        strsplit = strall.split('====================')
+        strsplit = strall.split('====================\n')
         strsplit = [x.strip() for x in strsplit]
         print len(strsplit)
         if len(strsplit) == 9:
@@ -143,6 +143,19 @@ def run_0929():
     # 参数为输入待检查文件夹,注意要带斜杠
     obj.find_all_file('/Users/haizhi/huochesite_checking/1009/方洋/09.29/')
 
+def run_1114():
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/1114/chenying/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/1114/陈迎/采集/')
+
+def run_1118():
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/1118临时/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/1114/方洋临时/1118/1118/')
+
+
 
 if __name__ == '__main__':
-    run_0929()
+    run_1118()
