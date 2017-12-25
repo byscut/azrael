@@ -52,9 +52,9 @@ class GsxxCrawler:
             json.dump(self.parse, f)
 
 if __name__ == '__main__':
-    urls = ['http://182.61.37.114:18080/api/topic/entry?name=&pageno=1&table=',
-            'http://182.61.37.114:18080/api/topic/entry?name=&pageno=2&table=',
-            'http://182.61.37.114:18080/api/topic/entry?name=&pageno=3&table=']
+    urls = ['http://172.18.180.224:18080/api/topic/entry?name=&pageno=1&table=',
+            'http://172.18.180.224:18080/api/topic/entry?name=&pageno=2&table=',
+            'http://172.18.180.224:18080/api/topic/entry?name=&pageno=3&table=']
     id = "1"
     obj = GsxxCrawler(id,urls)
     obj.work()
