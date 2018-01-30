@@ -3,6 +3,9 @@
 # @Author  : Azrael.Bai
 # @File    : locoy_file.py
 import os
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 class Locoy(object):
@@ -29,6 +32,8 @@ class Locoy(object):
 
     def read_locoy_file(self, file_name):
         strall = ''
+        if not file_name.endswith('.txt'):
+            return
         with open(file_name, 'r') as pre:
             for str1 in pre.readlines():
                 strall = strall + str1
@@ -41,10 +46,12 @@ class Locoy(object):
 
     def static_locoy_file(self, file_name):
         strall = ''
+        if not file_name.endswith('.txt'):
+            return
         with open(file_name, 'r') as pre:
             for str1 in pre.readlines():
                 strall = strall + str1
-        strsplit = strall.split('====================\n')
+        strsplit = strall.split('====================')
         strsplit = [x.strip() for x in strsplit]
         print len(strsplit)
         if len(strsplit) == 9:
@@ -76,6 +83,8 @@ class Locoy(object):
 
     def static_locoy_file_news(self, file_name):
         strall = ''
+        if not file_name.endswith('.txt'):
+            return
         with open(file_name, 'r') as pre:
             for str1 in pre.readlines():
                 strall = strall + str1
@@ -124,11 +133,12 @@ class Locoy(object):
                         self.error_file.write("文件夹[{}]中共有[{}]个文件.\n".format(root, len(files)))
                         flag = False
                     tuples = self.static_locoy_file(file_name)
-                    for single in tuples:
-                        if dict_f.has_key(single):
-                            dict_f[single] += 1
-                        else :
-                            dict_f[single] = 1
+                    if tuples:
+                        for single in tuples:
+                            if dict_f.has_key(single):
+                                dict_f[single] += 1
+                            else :
+                                dict_f[single] = 1
                 if len(files) > 0:
                     self.section_statistics_file.write('====================================================\n')
                     self.section_statistics_file.write(self.out + root.replace('/', '_') + '\n')

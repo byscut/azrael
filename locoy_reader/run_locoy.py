@@ -70,6 +70,48 @@ def run_1220():
     # 参数为输入待检查文件夹,注意要带斜杠
     obj.find_all_file('/Users/haizhi/huochesite_checking/1211bid（紧急）/陈迎/1211招中标任务/1211招中标任务/1211-陈迎-采集/')
 
+def run_201801():
+    # # 参数为输出文件夹,注意要带斜杠
+    # obj = Locoy('datas/201801/方洋/')
+    # # 参数为输入待检查文件夹,注意要带斜杠
+    # obj.find_all_file('/Users/haizhi/huochesite_checking/1222xbbid/方洋/1222/1222/')
+
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/201801/张航/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/1222xbbid/张航/1222/')
+
+    # # 参数为输出文件夹,注意要带斜杠
+    # obj = Locoy('datas/201801/肖少旋/')
+    # # 参数为输入待检查文件夹,注意要带斜杠
+    # obj.find_all_file('/Users/haizhi/huochesite_checking/1222xbbid/肖少旋/1222招中标火车任务/')
+
+
+def run_20180102():
+    # # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/20180102/方洋/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/20180102bid/方洋/0108以及1222改/0108/')
+
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/20180102/张航/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/20180102bid/张航/0108/')
+
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/20180102/肖少旋/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/20180102bid/肖少旋/0108招中标任务/')
+
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/20180102/陈迎/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/20180102bid/陈迎/0109招中标/采集/')
+
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/201801/黄厚华/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/20180102bid/黄厚华/火车采集2/')
 
 if __name__ == '__main__':
-    run_1220()
+    run_20180102()
