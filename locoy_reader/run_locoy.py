@@ -116,14 +116,17 @@ def run_20180102():
 
 def run_20180312():
     # 参数为输出文件夹,注意要带斜杠
-    obj = Locoy('datas/20180312/方洋/')
+    obj = Locoy('datas/20180312/陈迎/')
     # 参数为输入待检查文件夹,注意要带斜杠
-    obj.find_all_file('/Users/haizhi/huochesite_checking/0129/方洋/0129FY/0129/')
+    obj.find_all_file('/Users/haizhi/huochesite_checking/0129/陈迎/陈迎-0129-采集/采集/')
 
     # 参数为输出文件夹,注意要带斜杠
-    obj = Locoy('datas/20180312/张航/')
+    obj = Locoy('datas/20180312/黄厚华/')
     # 参数为输入待检查文件夹,注意要带斜杠
-    obj.find_all_file('/Users/haizhi/huochesite_checking/0129/张航/0129/')
+    obj.find_all_file('/Users/haizhi/huochesite_checking/0129/黄厚华/0129hhh/')
 
 if __name__ == '__main__':
-    run_20180312()
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/20180312/肖少璇/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/0129/肖少旋/0129火车配置/')
