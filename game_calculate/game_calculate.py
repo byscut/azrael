@@ -30,19 +30,28 @@ clist = []
 
 i = [0, 0, 0, 0, 0, 0, 0, 0]
 print "calculate..."
+print i
 
-for i[0] in xrange(0,31):
+for a in xrange(0, 31):
+    i[0] = a
     print "level0", i[0]
-    for i[1] in xrange(0, 31):
+    for b in xrange(0, 31):
+        i[1] = b
         print "level1", i[1]
-        for i[2] in xrange(0, 31):
+        for c in xrange(0, 31):
+            i[2] = c
             print "level2", i[2]
-            for i[3] in xrange(0, 31):
+            for d in xrange(0, 31):
+                i[3] = d
                 print "level3", i[3]
-                for i[4] in xrange(0, 31):
-                    for i[5] in xrange(0, 31):
-                        for i[6] in xrange(0, 31):
-                            for i[7] in xrange(0, 31):
+                for e in xrange(0, 31):
+                    i[4] = e
+                    for f in xrange(0, 31):
+                        i[5] = f
+                        for g in xrange(0, 31):
+                            i[6] = g
+                            for h in xrange(0, 31):
+                                i[7] = h
                                 if plus(money, i) > 320 or plus(money, i) < 300:
                                     continue
                                 elif add(i) < 7:
@@ -61,8 +70,13 @@ for i[0] in xrange(0,31):
                                             clist[locate] = copy.deepcopy(i)
                                         else:
                                             pass
+        fnow = open('out_now_level1'+ str(i[1]) + '.txt', 'w')
+        for i in xrange(0, len(max)):
+            fnow.write(str(max[i]) + "\t" + ",".join(str(i)) + "\n")
+        fnow.close()
+
 print "write..."
-f = open('out.txt', 'w')
+f1 = open('out.txt', 'w')
 for i in xrange(0, len(max)):
-    f.write(str(max[i]) + "\t" + ",".join(str([i])) + "\n")
-f.close()
+    f1.write(str(max[i]) + "\t" + ",".join(str([i])) + "\n")
+f1.close()
