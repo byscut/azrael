@@ -125,8 +125,26 @@ def run_20180312():
     # 参数为输入待检查文件夹,注意要带斜杠
     obj.find_all_file('/Users/haizhi/huochesite_checking/0129/黄厚华/0129hhh/')
 
-if __name__ == '__main__':
+def run_20180508():
     # 参数为输出文件夹,注意要带斜杠
-    obj = Locoy('datas/20180312/肖少璇/')
+    obj = Locoy('datas/20180508/陈迎/')
     # 参数为输入待检查文件夹,注意要带斜杠
-    obj.find_all_file('/Users/haizhi/huochesite_checking/0129/肖少旋/0129火车配置/')
+    obj.find_all_file('/Users/haizhi/huochesite_checking/20180408judge/陈迎/陈迎0327开庭公告/采集/')
+
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/20180508/黄厚华/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/20180408judge/黄厚华/0327/')
+
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/20180508/张航/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/20180408judge/张航/0327/')
+
+    # 参数为输出文件夹,注意要带斜杠
+    obj = Locoy('datas/20180508/方洋/')
+    # 参数为输入待检查文件夹,注意要带斜杠
+    obj.find_all_file('/Users/haizhi/huochesite_checking/20180408judge/方洋/0327FY/0327/裁判文书/')
+
+if __name__ == '__main__':
+    run_20180508()

@@ -115,6 +115,40 @@ class Locoy(object):
             return (strsplit[2], strsplit[3], strsplit[4], 'default', 'default')
         return ('', '', '', '', '')
 
+    def static_locoy_file_court(self, file_name):
+        strall = ''
+        if not file_name.endswith('.txt'):
+            return
+        with open(file_name, 'r') as pre:
+            for str1 in pre.readlines():
+                strall = strall + str1
+        strsplit = strall.split('====================\n')
+        strsplit = [x.strip() for x in strsplit]
+        print len(strsplit)
+        if len(strsplit) == 8:
+            self.quality_check_file.write('标题:' + strsplit[0] + '\n')
+            if len(strsplit[0]) == 0:
+                self.error_file.write(file_name + '标题为空,注意检查!!\n')
+                self.error_file.flush()
+            self.quality_check_file.write('正文长度:' + str(len(strsplit[1])) + '\n')
+            if len(strsplit[1]) == 0:
+                self.error_file.write(file_name + '正文为空,注意检查!!\n')
+                self.error_file.flush()
+
+            self.quality_check_file.write('日期:' + strsplit[6] + '\n')
+            if len(strsplit[6]) == 0:
+                self.error_file.write(file_name + '日期为空,注意检查!!\n')
+                self.error_file.flush()
+
+            self.quality_check_file.write('源代码长度:' + str(len(strsplit[7])) +'\n')
+            if len(strsplit[7]) < 300:
+                self.error_file.write(file_name + '源代码过短,注意检查!!\n')
+                self.error_file.flush()
+            self.quality_check_file.write('==========|||==========================|||==========\n')
+            # 较为固定字段检查
+            return (strsplit[2], strsplit[3], strsplit[4], strsplit[5], 'default')
+        return ('', '', '', '', '')
+
     def find_all_file(self, dir_name):
         for root, dirs, files in os.walk(dir_name):
             if len(os.listdir(root)) == 0:
@@ -132,7 +166,7 @@ class Locoy(object):
                         self.error_file.write("====================================================\n")
                         self.error_file.write("文件夹[{}]中共有[{}]个文件.\n".format(root, len(files)))
                         flag = False
-                    tuples = self.static_locoy_file(file_name)
+                    tuples = self.static_locoy_file_court(file_name)
                     if tuples:
                         for single in tuples:
                             if dict_f.has_key(single):
