@@ -8,8 +8,8 @@ import Levenshtein
 
 class CompanyCompare(object):
     def __init__(self):
-        self.conn = psycopg2.connect(database="damp_dev", user="postgres", password="postgres", host="192.168.1.111",
-                                     port="5432")
+        # self.conn = psycopg2.connect(database="damp_dev", user="postgres", password="postgres", host="192.168.1.111",
+        #                              port="5432")
 
         self.iac_hz_table = [
             'iac_hz_abnormaloperationinfo',
