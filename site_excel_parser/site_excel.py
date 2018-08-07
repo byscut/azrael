@@ -30,15 +30,20 @@ def read_sites():
         row_data = source_table.row_values(i)
 
         site = row_data[7].replace('http://', '').replace('https://', '').split('/')[0]
+        date = row_data[16]
         if site not in dict_sites:
-            dict_sites[site] = (row_data[5].split('-')[0],row_data[10])
+            dict_sites[site] = (row_data[5].split('-')[0],row_data[10], date)
+        else:
+            indata = dict_sites[site]
+            if date > indata[2]:
+                dict_sites[site] = (indata[0], indata[1], date)
     statics = read_statistics()
     for key, value in dict_sites.items():
         if key in statics.keys():
             print key + "\t" + value[0] + "\t" + value[1] + "\t" + str(int(statics[key][0])) + "\t" + str(
-                int(statics[key][1])) + "\t" + str(int(statics[key][2])) + "\t" + str(int(statics[key][3]))
+                int(statics[key][1])) + "\t" + str(int(statics[key][2])) + "\t" + str(int(statics[key][3])) + "\t" + str(value[2])
         else:
-            print key + "\t" + value[0] + "\t" + value[1] + "\t0\t0\t0\t0"
+            print key + "\t" + value[0] + "\t" + value[1] + "\t0\t0\t0\t0" + "\t" + str(value[2])
 
 def read_statistics():
     dir_path = u'/Users/haizhi/azrael/DATAS/increment-2018-07-31_00_10_07-sites.xls'
