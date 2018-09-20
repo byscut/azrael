@@ -6,6 +6,6 @@ locoy_reader/wangqing
 locoy_reader/zhanghang
 .idea
 locoy_reader/xiaoshaoxuan
-ignore_pak
+/ignore_pak/
 my_setting.py
 DATAS
