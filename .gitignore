@@ -11,3 +11,4 @@ my_setting.py
 DATAS
 *.pyc
 logs
+*.log
